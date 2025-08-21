@@ -1,7 +1,28 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { MouseEvent } from "react";
 
 export default function Home() {
+  const router = useRouter();
+
+  const handleNav = (href: string) => (e: MouseEvent<HTMLAnchorElement>) => {
+    if (e.defaultPrevented) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+    e.preventDefault();
+
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new Event("app:navigation-fade-out"));
+      const prefersReducedMotion =
+        typeof window.matchMedia === "function" &&
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const delay = prefersReducedMotion ? 0 : 250;
+      window.setTimeout(() => router.push(href), delay);
+    }
+  };
+
   return (
     <div className="h-full grid grid-rows-[1fr_auto_1fr]">
       <div className="flex items-center justify-start sm:justify-center px-[clamp(0.5rem,2vw,2rem)]">
@@ -27,9 +48,9 @@ export default function Home() {
         />
         <div className="absolute left-0 bottom-0 text-white">
           <nav className="flex flex-col gap-0 leading-[0.83] text-5xl font-extrabold sm:text-4xl">
-            <Link href="/about" className="transition-opacity duration-200 ease-in-out hover:opacity-80">ABOUT</Link>
-            <Link href="/experience" className="transition-opacity duration-200 ease-in-out hover:opacity-80">EXPERIENCE</Link>
-            <Link href="/archive" className="transition-opacity duration-200 ease-in-out hover:opacity-80">ARCHIVE</Link>
+            <Link href="/about" onClick={handleNav("/about")} className="transition-opacity duration-200 ease-in-out hover:opacity-80">ABOUT</Link>
+            <Link href="/experience" onClick={handleNav("/experience")} className="transition-opacity duration-200 ease-in-out hover:opacity-80">EXPERIENCE</Link>
+            <Link href="/archive" onClick={handleNav("/archive")} className="transition-opacity duration-200 ease-in-out hover:opacity-80">ARCHIVE</Link>
           </nav>
         </div>
       </div>

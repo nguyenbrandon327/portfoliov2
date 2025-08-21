@@ -83,8 +83,14 @@ export default function Navbutton() {
 			return;
 		}
 		setPendingHref(href);
-		// Trigger links fade-out first; navigation starts on animation complete
+		// Trigger page fade-out and links fade, then navigate immediately
+		if (typeof window !== "undefined") {
+			window.dispatchEvent(new Event("app:navigation-fade-out"));
+		}
 		setIsFadingOutLinks(true);
+		startTransition(() => {
+			router.push(href);
+		});
 	};
 
 	return (
@@ -135,13 +141,6 @@ export default function Navbutton() {
 								animate={isFadingOutLinks ? { opacity: 0, y: 8 } : { opacity: 1, y: 0 }}
 								exit={{ opacity: 0, y: 8 }}
 								transition={isFadingOutLinks ? { duration: 0.2, ease: "easeIn" } : { duration: 0.3, ease: "easeOut", delay: 0.1 }}
-								onAnimationComplete={() => {
-									if (isFadingOutLinks && pendingHref) {
-										startTransition(() => {
-											router.push(pendingHref);
-										});
-									}
-								}}
 							>
 								<Link ref={firstLinkRef} href="/" className={getLinkClassName("/")} aria-current={pathname === "/" ? "page" : undefined} onClick={handleNavigate("/")}>
 									Home
