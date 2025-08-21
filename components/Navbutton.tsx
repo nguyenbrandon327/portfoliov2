@@ -7,11 +7,11 @@ import { useEffect, useRef, useState } from "react";
 export default function Navbutton() {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isMounted, setIsMounted] = useState(false);
-	const firstLinkRef = useRef(null);
+	const firstLinkRef = useRef<HTMLAnchorElement | null>(null);
 	const pathname = usePathname();
 	const OVERLAY_FADE_MS = 700;
 
-	const getLinkClassName = (href) => {
+	const getLinkClassName = (href: string): string => {
 		const isActive = pathname === href;
 		const base = "text-2xl sm:text-3xl font-medium rounded px-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-800/20";
 		return isActive
@@ -21,7 +21,7 @@ export default function Navbutton() {
 
 	useEffect(() => {
 		if (!isOpen) return;
-		const onKeyDown = (event) => {
+		const onKeyDown = (event: KeyboardEvent) => {
 			if (event.key === "Escape") {
 				setIsOpen(false);
 				setTimeout(() => setIsMounted(false), OVERLAY_FADE_MS);
@@ -32,8 +32,8 @@ export default function Navbutton() {
 	}, [isOpen]);
 
 	useEffect(() => {
-		if (isOpen && firstLinkRef.current) {
-			firstLinkRef.current.focus();
+		if (isOpen) {
+			firstLinkRef.current?.focus();
 		}
 	}, [isOpen]);
 

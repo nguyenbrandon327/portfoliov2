@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbutton from "../components/Navbutton";
+import PageFadeIn from "../components/PageFadeIn";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,9 +32,9 @@ export default function RootLayout({
             <Navbutton />
           </div>
           <div className="min-h-screen flex items-center justify-center">
-            <div className="bg-white h-[100svh] w-full sm:min-w-[500px] sm:w-auto sm:aspect-[8.375/10.875] max-w-full sm:max-w-[min(100vw-2rem,calc(100svh*0.769))] border border-black/10 shadow-sm overflow-y-auto">
+            <PageFadeIn className="bg-white h-[100svh] w-full sm:min-w-[500px] sm:w-auto sm:aspect-[8.375/10.875] max-w-full sm:max-w-[min(100vw-2rem,calc(100svh*0.769))] border border-black/10 shadow-sm overflow-y-auto">
               {children}
-            </div>
+            </PageFadeIn>
           </div>
         </div>
       </body>
