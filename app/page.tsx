@@ -1,39 +1,18 @@
-"use client";
-
 import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { MouseEvent } from "react";
+import FadeLink from "../components/FadeLink";
 
 export default function Home() {
-  const router = useRouter();
-
-  const handleNav = (href: string) => (e: MouseEvent<HTMLAnchorElement>) => {
-    if (e.defaultPrevented) return;
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
-    e.preventDefault();
-
-    if (typeof window !== "undefined") {
-      window.dispatchEvent(new Event("app:navigation-fade-out"));
-      const prefersReducedMotion =
-        typeof window.matchMedia === "function" &&
-        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const delay = prefersReducedMotion ? 0 : 250;
-      window.setTimeout(() => router.push(href), delay);
-    }
-  };
-
   return (
     <div className="h-full grid grid-rows-[1fr_auto_1fr]">
-      <div className="flex items-center justify-start sm:justify-center px-[clamp(0.5rem,2vw,2rem)]">
-        <div className="text-left sm:text-center leading-tight">
+      <div className="flex items-start justify-start pl-1 pr-[clamp(0.5rem,2vw,2rem)]">
+        <div className="text-left leading-tight">
           <div className="font-semibold tracking-tight sm:text-[clamp(1.75rem,6svh,3.5rem)] text-[clamp(2.25rem,9svh,4rem)]">
-            <span className="hidden sm:inline">BRANDON NGUYEN</span>
-            <span className="sm:hidden block leading-[0.95]">
+            <span className="block leading-[0.95]">
               BRANDON<br />
-              NGUYEN
+              NGUYEN.
             </span>
           </div>
+          <div className="mt-1 text-xs tracking-tight opacity-80">"SOFTWARE ENGINEER"</div>
         </div>
       </div>
 
@@ -47,10 +26,10 @@ export default function Home() {
           sizes="100vw"
         />
         <div className="absolute left-0 bottom-0 text-white">
-          <nav className="flex flex-col gap-0 leading-[0.83] text-5xl font-extrabold sm:text-4xl">
-            <Link href="/about" onClick={handleNav("/about")} className="transition-opacity duration-200 ease-in-out hover:opacity-80">ABOUT</Link>
-            <Link href="/experience" onClick={handleNav("/experience")} className="transition-opacity duration-200 ease-in-out hover:opacity-80">EXPERIENCE</Link>
-            <Link href="/archive" onClick={handleNav("/archive")} className="transition-opacity duration-200 ease-in-out hover:opacity-80">ARCHIVE</Link>
+          <nav className="flex flex-col gap-0 leading-[0.83] text-6xl font-bold sm:text-5xl">
+            <FadeLink href="/about" className="transition-opacity duration-200 ease-in-out hover:opacity-80">ABOUT</FadeLink>
+            <FadeLink href="/experience" className="transition-opacity duration-200 ease-in-out hover:opacity-80">EXPERIENCE</FadeLink>
+            <FadeLink href="/archive" className="transition-opacity duration-200 ease-in-out hover:opacity-80">ARCHIVE</FadeLink>
           </nav>
         </div>
       </div>

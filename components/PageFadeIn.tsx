@@ -53,7 +53,7 @@ export default function PageFadeIn({
     <motion.div
       key={pathname}
       initial={{ opacity: 0, filter: `blur(${initialBlurPx}px)` }}
-      animate={isFadingOut ? { opacity: 0, filter: `blur(${Math.max(4, initialBlurPx / 2)}px)` } : { opacity: 1, filter: 'blur(0px)' }}
+      animate={isFadingOut ? { opacity: 0, filter: `blur(${initialBlurPx}px)` } : { opacity: 1, filter: 'blur(0px)' }}
       transition={isFadingOut ? outTransition : inTransition}
       style={{ willChange: 'opacity, filter' }}
       className={className}

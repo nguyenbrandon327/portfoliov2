@@ -5,16 +5,16 @@ export default function AboutPage() {
 		<div className="h-full [container-type:size]">
 			{/* Desktop / larger screens: two columns */}
 			<div className="hidden [@container(min-width:600px)]:grid [@container(min-width:600px)]:grid-cols-[1fr_2fr] h-full min-h-0 items-stretch">
-				{/* Left column: centered text */}
+				{/* Left column*/}
 				<div className="flex items-center justify-center min-h-0">
 					<div className="px-6 lg:px-8 py-[clamp(2px,0.8svh,12px)] text-[clamp(0.54rem,min(1.8cqi,1.8cqh),1.02rem)] leading-[1.24]">Hi! I'm Brandon Nguyen, and I love to build things. Specifically, things that make life easier, or more fun. My goal is to become a software engineer to build products that help people.
 
 Right now, I'm studying Computer Science at UC Riverside, graduating in 2027. Outside of school, I like to expand my skills by working on cool projects (see here). If you want to know more about me personally, message me on my socials 😉</div>
 				</div>
-				{/* Right column: image touching top/bottom/right edges of the page container */}
+				{/* Right column*/}
 				<div className="relative h-full min-h-0">
 					<Image
-						src="/home.JPG"
+						src="/about.JPG"
 						alt="About image"
 						fill
 						priority
@@ -31,7 +31,7 @@ Right now, I'm studying Computer Science at UC Riverside, graduating in 2027. Ou
 Right now, I'm studying Computer Science at UC Riverside, graduating in 2026. Outside of school, I like to expand my skills by working on cool projects (see here). If you want to know more about me personally, message me on my socials 😉</div>
 					<div className="relative w-full aspect-square">
 						<Image
-							src="/home.JPG"
+							src="/about.JPG"
 							alt="About image"
 							fill
 							priority
