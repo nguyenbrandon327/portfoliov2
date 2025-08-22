@@ -33,7 +33,7 @@ export default function RootLayout({
             <Navbutton />
           </div>
           <div className="min-h-screen flex items-center justify-center">
-            <div className="bg-white h-[100svh] w-full sm:min-w-[500px] sm:w-auto sm:aspect-[8.375/10.875] max-w-full sm:max-w-[min(100vw-2rem,calc(100svh*0.769))] border border-black/10 shadow-sm overflow-y-auto">
+            <div className="bg-white h-[100svh] w-full sm:min-w-[500px] sm:w-auto sm:aspect-[8.375/10.875] max-w-full sm:max-w-[min(100vw-2rem,calc(100svh*0.769))] border border-black/10 shadow-sm overflow-y-auto custom-scrollbar">
               <PageFadeIn className="h-full">
                 {children}
               </PageFadeIn>

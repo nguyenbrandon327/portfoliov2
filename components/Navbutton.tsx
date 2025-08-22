@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState, useTransition } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 export default function Navbutton() {
 	const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +14,12 @@ export default function Navbutton() {
 	const pathname = usePathname();
 	const router = useRouter();
 	const OVERLAY_FADE_S = 0.7;
+	const prefersReducedMotion = useReducedMotion();
+
+	const INITIAL_BLUR_PX = 12;
+	const inTransition = prefersReducedMotion
+		? { duration: 0 }
+		: { duration: 1.2, ease: [0.22, 1, 0.36, 1] as const };
 
 	const getLinkClassName = (href: string): string => {
 		const isActive = pathname === href;
@@ -56,6 +62,8 @@ export default function Navbutton() {
 		}
 	}, [isOpen]);
 
+	// Intentionally no fade-out on navigation for the menu button.
+
 	// Optionally prefetch when overlay opens
 	useEffect(() => {
 		if (!isOpen) return;
@@ -95,15 +103,19 @@ export default function Navbutton() {
 
 	return (
 		<div className="relative">
-			<button
+			<motion.button
 				className="inline-flex items-center rounded-md px-3 py-2 text-sm font-medium text-neutral-900/80 hover:text-neutral-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-800/20"
 				aria-haspopup="dialog"
 				aria-expanded={isOpen}
 				aria-controls="main-menu-overlay"
 				onClick={openOverlay}
+				initial={{ opacity: 0, filter: `blur(${INITIAL_BLUR_PX}px)` }}
+				animate={{ opacity: 1, filter: "blur(0px)" }}
+				transition={inTransition}
+				style={{ willChange: "opacity, filter" }}
 			>
 				<span>MENU</span>
-			</button>
+			</motion.button>
 
 			<AnimatePresence initial={false}>
 				{isOpen && (

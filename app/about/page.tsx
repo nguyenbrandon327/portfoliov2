@@ -18,6 +18,7 @@ Right now, I'm studying Computer Science at UC Riverside, graduating in 2027. Ou
 						alt="About image"
 						fill
 						priority
+						sizes="(max-width: 599px) 0px, 66vw"
 						className="object-cover"
 					/>
 				</div>
@@ -35,6 +36,7 @@ Right now, I'm studying Computer Science at UC Riverside, graduating in 2026. Ou
 							alt="About image"
 							fill
 							priority
+							sizes="(min-width: 600px) 0px, 100vw"
 							className="object-cover"
 						/>
 					</div>
