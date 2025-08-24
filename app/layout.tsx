@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbutton from "../components/Navbutton";
 import PageFadeIn from "../components/PageFadeIn";
+import InitialsLink from "../components/InitialsLink";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BRANDON NGUYEN",
+  title: "BRANDON NGUYEN®",
   description: "BRANDON NGUYEN",
   icons: { icon: "/icon.png" },
 };
@@ -29,11 +30,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}>
         <div className="min-h-screen relative">
-          <div className="fixed top-1 right-1 z-50">
+          <div className="fixed top-0 left-0 z-50">
+            <InitialsLink />
+          </div>
+          <div className="fixed top-0 right-0 z-50">
             <Navbutton />
           </div>
           <div className="min-h-screen flex items-center justify-center">
-            <div className="bg-white h-[100svh] w-full sm:min-w-[500px] sm:w-auto sm:aspect-[8.375/10.875] max-w-full sm:max-w-[min(100vw-2rem,calc(100svh*0.769))] border border-black/10 shadow-sm overflow-y-auto custom-scrollbar">
+            <div className="bg-background h-[100svh] w-full sm:min-w-[500px] sm:w-auto sm:aspect-[8.375/10.875] max-w-full sm:max-w-[min(100vw-2rem,calc(100svh*0.769))] overflow-y-auto custom-scrollbar">
               <PageFadeIn className="h-full">
                 {children}
               </PageFadeIn>

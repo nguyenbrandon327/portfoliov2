@@ -125,7 +125,7 @@
 .custom-scrollbar {
   /* Firefox */
   scrollbar-width: thin;
-  scrollbar-color: var(--background) transparent;
+  scrollbar-color: var(--foreground) transparent;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -137,6 +137,6 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: var(--background);
+  background-color: var(--foreground);
   border-radius: 9999px;
 }

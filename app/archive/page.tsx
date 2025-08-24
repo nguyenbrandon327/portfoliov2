@@ -23,8 +23,15 @@ export default function ArchivePage() {
 	];
 
 	return (
-		<div className="p-2 sm:p-3">
-			<div className="mt-3 columns-2 sm:columns-3 gap-4">
+		<div className="pt-2 pb-2 sm:pt-3 sm:pb-3">
+			{/* ARCHIVE text at top center */}
+			<div className="fixed top-0 left-1/2 transform -translate-x-1/2 z-50">
+				<div className="inline-flex items-center rounded-md px-3 py-2 text-sm font-medium text-neutral-900/80">
+					"ARCHIVE"
+				</div>
+			</div>
+
+			<div className="mt-16 sm:mt-6 columns-2 sm:columns-3 gap-2">
 				{imagePaths.map((src) => {
 					const alt = src
 						.split("/")
@@ -32,7 +39,7 @@ export default function ArchivePage() {
 						.replace(/\.[^/.]+$/, "")
 						.replace(/[-_]/g, " ");
 					return (
-						<div key={src} className="mb-4 break-inside-avoid">
+						<div key={src} className="mb-2 break-inside-avoid">
 							<Image
 								src={src}
 								alt={alt}

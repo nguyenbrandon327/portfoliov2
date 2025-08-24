@@ -132,7 +132,7 @@ export default function Navbutton() {
 					>
 						<motion.button
 							aria-label="Close menu"
-							className="absolute top-1 right-1 inline-flex items-center justify-center rounded-md p-2 text-sm font-medium text-neutral-900/80 hover:text-neutral-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-800/20 transition"
+							className="absolute top-0 right-0 inline-flex items-center justify-center rounded-md p-2 text-sm font-medium text-neutral-900/80 hover:text-neutral-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-neutral-800/20 transition"
 							onClick={(e) => {
 								e.stopPropagation();
 								closeOverlay();
