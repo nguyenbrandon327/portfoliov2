@@ -39,7 +39,7 @@ export default function Home() {
       <div className="flex items-start justify-end pl-[clamp(0.5rem,2vw,1.5rem)] pr-0 pt-[clamp(0.5rem,2vw,1.5rem)]">
         <nav className="text-right flex flex-col items-end gap-[clamp(0.25rem,1.2vw,0.5rem)] font-bold text-[clamp(0.9rem,2.4svh,1.25rem)] sm:text-[clamp(0.75rem,1.8svh,1rem)] sm:font-normal">
           <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/nguyenbrandon327"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-opacity duration-200 ease-in-out hover:opacity-80 flex items-center gap-2"
@@ -47,7 +47,7 @@ export default function Home() {
             LINKEDIN <Linkedin className="w-[0.9em] h-[0.9em]" />
           </a>
           <a
-            href="https://github.com/"
+            href="https://github.com/nguyenbrandon327"
             target="_blank"
             rel="noopener noreferrer"
             className="transition-opacity duration-200 ease-in-out hover:opacity-80 flex items-center gap-2"
