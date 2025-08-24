@@ -121,26 +121,6 @@
   }
 }
 
-/* Ensure first-visit fade-in reliably starts from hidden/blurred until boot script runs */
-#app-shell[data-boot="pending"] {
-  opacity: 0;
-  filter: blur(12px);
-  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), filter 0.8s cubic-bezier(0.22,1,0.36,1);
-}
-
-#app-shell[data-boot="ready"] {
-  opacity: 1;
-  filter: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #app-shell[data-boot="pending"] {
-    opacity: 1;
-    filter: none;
-    transition: none;
-  }
-}
-
 /* Thin, subtle scrollbar only for the inner scroll container */
 .custom-scrollbar {
   /* Firefox */
