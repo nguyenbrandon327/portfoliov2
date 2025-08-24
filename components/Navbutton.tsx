@@ -96,9 +96,20 @@ export default function Navbutton() {
 			window.dispatchEvent(new Event("app:navigation-fade-out"));
 		}
 		setIsFadingOutLinks(true);
-		startTransition(() => {
-			router.push(href);
-		});
+		// Delay navigation slightly to allow the current page to fade out,
+		// mirroring the behavior in FadeLink and matching PageFadeIn's exit duration.
+		const navigateDelayMs = prefersReducedMotion ? 0 : 250;
+		if (typeof window !== "undefined") {
+			window.setTimeout(() => {
+				startTransition(() => {
+					router.push(href);
+				});
+			}, navigateDelayMs);
+		} else {
+			startTransition(() => {
+				router.push(href);
+			});
+		}
 	};
 
 	return (
