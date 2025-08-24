@@ -37,7 +37,7 @@ export default function AboutPage() {
 			{/* Mobile: stacked layout with square image */}
 			<div className="[@container(min-width:600px)]:hidden h-full flex items-center justify-center">
 				<div className="grid grid-rows-[auto_auto_auto] w-full max-w-md px-6 mx-auto min-h-0">
-					<div className="mb-3 text-[clamp(0.6rem,min(2.6cqi,2.6cqh),1.06rem)] leading-[1.24]">
+					<div className="mb-3 text-[clamp(0.8rem,min(2.8cqi,2.8cqh),1.2rem)] leading-[1.24]">
 						<p className="mb-4">Hi! I'm Brandon, and I love to build things. Specifically, things that make life easier or more fun. My goal is to become a software engineer to build products that help people.</p>
 						<p>Right now, I'm studying Computer Science at UC Riverside, graduating in 2027. Outside of school, I like to expand my skills by working on cool <FadeLink href="/experience" className="underline hover:opacity-70 transition-opacity">projects</FadeLink>. I also like to workout, watch sports, and explore new places with friends. If you want to know more about me personally, message me on my socials 😉</p>
 					</div>
@@ -51,7 +51,7 @@ export default function AboutPage() {
 							className="object-cover"
 						/>
 					</div>
-					<div className="text-right mt-1 opacity-70 text-[clamp(0.5rem,1.4svh,0.7rem)] sm:text-[clamp(0.5rem,1.4svh,0.75rem)]">(San Diego, CA)</div>
+					<div className="text-right mt-1 opacity-70 text-[clamp(0.5rem,1svh,0.7rem)] sm:text-[clamp(0.7rem,1.6svh,0.9rem)]">(San Diego, CA)</div>
 				</div>
 			</div>
 		</div>

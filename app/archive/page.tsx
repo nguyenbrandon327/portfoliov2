@@ -31,7 +31,7 @@ export default function ArchivePage() {
 				</div>
 			</div>
 
-			<div className="mt-16 sm:mt-6 columns-2 sm:columns-3 gap-2">
+			<div className="mt-7 sm:mt-6 columns-2 sm:columns-3 gap-2">
 				{imagePaths.map((src) => {
 					const alt = src
 						.split("/")

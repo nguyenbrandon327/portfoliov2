@@ -15,7 +15,7 @@ export default function Home() {
           </div>
           <div className="mt-1 tracking-tight opacity-80 text-[clamp(0.6rem,2.2svh,0.9rem)] sm:text-[clamp(0.5rem,1.6svh,0.8rem)]">"SOFTWARE ENGINEER"</div>
         </div>
-        <div className="absolute bottom-0 right-0 opacity-70 text-[clamp(0.6rem,1.8svh,0.85rem)] sm:text-[clamp(0.5rem,1.4svh,0.75rem)]">(San Diego, CA)</div>
+        <div className="absolute bottom-0 right-0 opacity-70 text-[clamp(0.4rem,1.8svh,0.85rem)] sm:text-[clamp(0.5rem,1.4svh,0.75rem)]">(San Diego, CA)</div>
       </div>
 
       <div className="relative w-full aspect-[7/6] mx-auto">
@@ -36,7 +36,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="flex items-start justify-end pl-[clamp(0.5rem,2vw,1.5rem)] pr-0 pt-[clamp(0.5rem,2vw,1.5rem)]">
+      <div className="flex items-start justify-end pl-[clamp(0.5rem,2vw,1.5rem)] pr-[clamp(0.5rem,1vw,0rem)] pt-[clamp(0.5rem,2vw,1.5rem)]">
         <nav className="text-right flex flex-col items-end gap-[clamp(0.25rem,1.2vw,0.5rem)] font-bold text-[clamp(0.9rem,2.4svh,1.25rem)] sm:text-[clamp(0.75rem,1.8svh,1rem)] sm:font-normal">
           <a
             href="https://www.linkedin.com/in/nguyenbrandon327"
